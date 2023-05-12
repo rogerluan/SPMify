@@ -38,6 +38,23 @@ ruby <(curl -s https://raw.githubusercontent.com/rogerluan/SPMify/main/spmify.ru
 
 This will produce the resulting `Package.swift` in the same directory. Now review the `Package.swift` file, and check out the potential TO-DOs that the script left in your file.
 
+# Features
+
+- ✅ It will check whether the presumed GitHub repository has a `Package.swift` file.
+- ✅ It will follow branch references when present (some repos only have `Package.swift` in a "spm" branch for instance).
+- ✅ It will leave "TO-DO" comments on what needs attention after building your `Package.swift`.
+- ✅ It will automatically follow GitHub repo redirects, which catches the edge case where a username, organization or repository was renamed.
+- ✅ It will follow the specified pods repo forks, tags, branches.
+
+# What it won't do
+
+Unless someone feels like opening a PR to add these features, these are the things it won't do:
+
+- ❌ It doesn't handle CocoaPods sub-directories. E.g. `Firebase/Messaging`, `Firebase/Analytics`, etc.
+- ❌ It doesn't handle cases where the SPM repo is different from the CocoaPods repo. E.g.: https://github.com/aws-amplify/aws-sdk-ios
+- ❌ It doesn't use any form of authentication with GitHub when checking whether the repo contains `Package.swift`. This means it can't access private repos, and has a limit of 60 requests/hour.
+- ❌ It doesn't handle local pods (aka Development Pods).
+
 # Contributions
 
 If you spot something wrong, missing, or if you'd like to propose improvements to this project, please open an Issue or a Pull Request with your ideas and I promise to get back to you within 24 hours! 😇
