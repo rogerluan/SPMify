@@ -20,7 +20,9 @@
   </p>
 </div>
 
-This script will help you migrate from CocoaPods to SPM by _helping_ you convert your `Podfile.lock` into a `Package.swift`. Keep in mind that this script will only get you 90% there, the remaining 10% will most likely require some manual massaging, as this script is not bullet proof — there are always private repos, or repos that don't support SPM yet, or other things that get on the way that prevent the final `Package.swift` from fully working out-of-the-box.
+This script will help you migrate your iOS project from CocoaPods to SPM by _helping_ you convert your `Podfile.lock` into a `Package.swift`.
+
+Keep in mind that this script will only get you 90% there, the remaining 10% will most likely require some manual massaging, as this script is not bullet proof — there are always private repos, or repos that don't support SPM yet, or other things that get on the way that prevent the final `Package.swift` from fully working out-of-the-box.
 
 ## Installation
 
