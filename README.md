@@ -44,7 +44,7 @@ This will produce the resulting `Package.swift` in the same directory. Now revie
 - ✅ It will follow branch references when present (some repos only have `Package.swift` in a "spm" branch for instance).
 - ✅ It will leave "TO-DO" comments on what needs attention after building your `Package.swift`.
 - ✅ It will automatically follow GitHub repo redirects, which catches the edge case where a username, organization or repository was renamed.
-- ✅ It will follow the specified pods repo forks, tags, branches.
+- ✅ It will follow the specified pods repo forks, tags, branches, and versions, so your `Package.swift` will be as close as possible to your `Podfile.lock`.
 
 # What it won't do
 
@@ -54,6 +54,13 @@ Unless someone feels like opening a PR to add these features, these are the thin
 - ❌ It doesn't handle cases where the SPM repo is different from the CocoaPods repo. E.g.: https://github.com/aws-amplify/aws-sdk-ios
 - ❌ It doesn't use any form of authentication with GitHub when checking whether the repo contains `Package.swift`. This means it can't access private repos, and has a limit of 60 requests/hour.
 - ❌ It doesn't handle local pods (aka Development Pods).
+- ❌ It doesn't handle cases where the pod specific version doesn't support SPM. So after the Package.swift is generated, you'll have to manually check whether the version you're using supports SPM or not, and if it doesn't, you'll have to manually change the version to a one that does support SPM.
+
+# Troubleshooting
+
+## Xcode is throwing `Package manifest at '/Package.swift' cannot be accessed (/Package.swift doesn't exist in file system)`
+
+See: https://stackoverflow.com/a/76250361/4075379
 
 # Contributions
 
